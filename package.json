@@ -1,0 +1,16 @@
+{
+  "name": "react-trello",
+  "version": "0.0.1",
+  "description": "",
+  "main": "app.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/lurique/react-trello.git"
+  },
+  "author": "Lucas Henrique",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/lurique/react-trello/issues"
+  },
+  "homepage": "https://github.com/lurique/react-trello#readme"
+}
