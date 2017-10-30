@@ -21,7 +21,7 @@ import del from 'del'
 // Creating paths for project dependencies
 const PATH = {
 	html: 'src/',
-	sass: 'src/sass/',
+	sass: 'src/scss/',
 	js: 'src/js/',
 	img: 'src/img/',
 	src: 'src/',
@@ -54,12 +54,12 @@ gulp.task('html', () => {
 
 // CSS task
 gulp.task('css', () => {
-	return gulp.src(PATH.sass.concat('**/*.sass'))
+	return gulp.src(PATH.sass.concat('**/*.scss'))
 						 .pipe(sass({
 							 	includePaths: require('node-neat').includePaths,
 							 	style: 'nested',
 							 	swallowError: () => {
-							 		console.log('Error ocurred when transpiling sass')
+							 		console.log('Error ocurred when transpiling scss')
 							 	}
 						 }))
 						 .pipe(cssnano())
@@ -93,7 +93,7 @@ gulp.task('img', () => {
 // Watch task
 gulp.task('watch', () => {
 	gulp.watch(PATH.html.concat('**/*.html'), ['html'])
-	gulp.watch(PATH.sass.concat('**/*.sass'), ['css'])
+	gulp.watch(PATH.sass.concat('**/*.scss'), ['css'])
 	gulp.watch(PATH.js.concat('**/*.js'), ['js'])
 	gulp.watch(PATH.img.concat('**/*.+(png|jpg|jpeg|gif|svg)'), ['img'])
 })
