@@ -21,9 +21,9 @@ import del from 'del'
 // Creating paths for project dependencies
 const PATH = {
 	html: 'src/',
-	sass: 'src/sass',
-	js: 'src/js',
-	img: 'src/img',
+	sass: 'src/sass/',
+	js: 'src/js/',
+	img: 'src/img/',
 	src: 'src/',
 	build: 'build/',
 	revDir: 'rev/',
@@ -34,6 +34,7 @@ const PATH = {
 const swallowError = (err) => {
 	util.beep()
 	util.log(util.colors.red(err))
+	this.emit(err)
 }
 
 // Server listener
