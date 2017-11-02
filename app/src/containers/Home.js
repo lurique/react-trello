@@ -1,4 +1,6 @@
 import React, { Component } from 'react'
+import Panel from './../components/Panel'
+
 import './Home.scss'
 
 class Home extends Component {
@@ -8,7 +10,7 @@ class Home extends Component {
 
 	render() {
 		return (
-			<a href="#">Toma</a>
+			<Panel />
 		)
 	}
 }
