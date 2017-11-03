@@ -24,20 +24,21 @@ class Panel extends Component {
 		const { cards } = this.props
 
 		return (
-			<div className="row">
-				<div className="col-md-4">
-					<div className="card card-default">
-						<div className="card-heading">
-							<h2>Header card</h2>
-						</div>
-						<div className="card-body">
-							<Cards
-								cards = { cards }
-							/>
-						</div>
-						<div className="card-footer">
-							<button type="button" className="btn btn-primary" onClick={ this.handleCreateCard }>+ Card</button>
-						</div>
+			<div className="col">
+				<div className="card card-default">
+					<div className="card-heading">
+						<h2>Header card</h2>
+					</div>
+					<div className="card-body">
+						<Cards
+							cards= { cards }
+							clickToEdit= { this.props.editCard }
+							editCard= { this.props.editCard }
+							deleteCard= { this.props.deleteCard }
+						/>
+					</div>
+					<div className="card-footer">
+						<button type="button" className="btn btn-primary" onClick={ this.handleCreateCard }>+ Card</button>
 					</div>
 				</div>
 			</div>
@@ -53,7 +54,20 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
 	return {
-		createCard: () => dispatch(CardActions.createCard())
+		createCard: () => dispatch(CardActions.createCard('New task')),
+		editCard: (id, value) => {
+			const edited = { id }
+
+			if ( !value ) {
+				edited.edit = true
+			} else {
+				edited.edit = false
+				edited.text = value
+			}
+
+			dispatch(CardActions.editCard(edited))
+		},
+		deleteCard: (id) => dispatch(CardActions.deleteCard(id))
 	}
 }
 

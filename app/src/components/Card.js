@@ -8,7 +8,7 @@ class Card extends Component {
 	render() {
 		return (
 			<li className="col-md-12">
-				Task 1
+				{ this.props.children }
 			</li>
 		)
 	}

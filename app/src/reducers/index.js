@@ -3,7 +3,10 @@ import { routerReducer } from 'react-router-redux'
 
 import Card from './Card'
 
+import Panel from './Panel'
+
 export default combineReducers({
 	router: routerReducer,
-	cards: Card
+	cards: Card,
+	panels: Panel
 })
