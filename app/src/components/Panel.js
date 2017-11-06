@@ -1,6 +1,8 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
+
 import Cards from './Cards'
+import CardInput from './CardInput'
 
 import { connect } from 'react-redux'
 import CardActions from './../actions/CardActions'
@@ -21,19 +23,25 @@ class Panel extends Component {
 	}
 
 	render() {
-		const { cards } = this.props
+		const { cards, panel } = this.props
 
 		return (
-			<div className="col">
+			<div className="col-xs-12 col-md col-lg">
 				<div className="card card-default">
 					<div className="card-heading">
-						<h2>Header card</h2>
+						<CardInput
+							id= { panel.id }
+							edit= { panel.edit }
+							text= { panel.text }
+							editComponent= { this.props.editPanel }
+							clickToEdit= { this.props.editPanel }
+						/>
 					</div>
 					<div className="card-body">
 						<Cards
 							cards= { cards }
 							clickToEdit= { this.props.editCard }
-							editCard= { this.props.editCard }
+							editComponent= { this.props.editCard }
 							deleteCard= { this.props.deleteCard }
 						/>
 					</div>

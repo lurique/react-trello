@@ -5,7 +5,7 @@ class CardInput extends Component {
 		super(props)
 
 		this.handleClickToEdit = this.handleClickToEdit.bind(this)
-		this.handleEditCard = this.handleEditCard.bind(this)
+		this.handleEdit = this.handleEdit.bind(this)
 		this.handleDeleteCard = this.handleDeleteCard.bind(this)
 	}
 
@@ -13,7 +13,7 @@ class CardInput extends Component {
 		this.props.clickToEdit(this.props.id)
 	}
 
-	handleEditCard(e) {
+	handleEdit(e) {
 		if ( e.type === 'keypress' && e.key !== 'Enter' ) {
 			return
 		}
@@ -22,7 +22,7 @@ class CardInput extends Component {
 		const { id } = this.props
 
 		if ( text.trim().length ) {
-			this.props.editCard(id, text)
+			this.props.editComponent(id, text)
 		}
 	}
 
@@ -37,8 +37,8 @@ class CardInput extends Component {
 				<input type="text"
 							 className="form-control"
 							 defaultValue={ this.props.text }
-							 onBlur= { this.handleEditCard }
-							 onKeyPress= { this.handleEditCard } />
+							 onBlur= { this.handleEdit }
+							 onKeyPress= { this.handleEdit } />
 			</div>
 		)
 	}
@@ -54,7 +54,7 @@ class CardInput extends Component {
 								 readOnly />
 				</div>
 				<div className="col-xs-2">
-					<button type="button" className="btn btn-danger btn-block" onClick={ this.handleDeleteCard }>Delete</button>
+					<button type="button" className="btn btn-danger btn-block" onClick={ this.handleDeleteCard }>Archive</button>
 				</div>
 			</div>
 		)

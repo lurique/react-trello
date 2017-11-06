@@ -3,10 +3,6 @@ import Card from './Card'
 import CardInput from './CardInput'
 
 class Cards extends Component {
-	constructor(props) {
-		super(props)
-	}
-
 	render() {
 		const cards = this.props.cards.map(card => (
 			<Card key= { card.id }>
@@ -15,7 +11,7 @@ class Cards extends Component {
 					edit= { card.edit }
 					text= { card.text }
 					clickToEdit= { this.props.clickToEdit }
-					editCard= { this.props.editCard }
+					editComponent= { this.props.editCard }
 					deleteCard= { this.props.deleteCard }
 				/>
 			</Card>
